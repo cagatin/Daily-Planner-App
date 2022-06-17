@@ -43,5 +43,3 @@ function updateColorCode() {
 }
 
 updateColorCode();
-
-//need a way to clear
