@@ -39,6 +39,7 @@ textarea {
 .input-group-text {
   border: none;
   width: 75px;
+  padding-left: 1%;
 }
 
 .hour {

@@ -12,3 +12,12 @@ function displayTime() {
 //Display the time and update the time every second
 displayTime();
 setInterval(displayTime, 1000);
+
+
+// Function to color code the time blocks
+function updateColorCode() {
+    let currHour = moment(dateObj).format("HH");
+    console.log(currHour);
+}
+
+updateColorCode();
