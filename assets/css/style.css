@@ -44,6 +44,8 @@ textarea {
   padding-left: 1%;
 }
 
+.form-control {}
+
 .hour {
   background-color: #ffffff;
   color: #000000;
@@ -69,6 +71,7 @@ textarea {
   border-left: 1px solid black;
   border-top-right-radius: 15px;
   border-bottom-right-radius: 15px;
+  margin-left: 25%;
   background-color: #06aed5;
   color: white;
 }
