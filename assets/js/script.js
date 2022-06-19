@@ -2,9 +2,6 @@
 let dateObj;
 let date;
 
-//Variable to hold the save button 
-let saveBtn = $('.saveBtn')
-
 //Variable that refrences the current day paragraph
 let currDayPara = $('#currentDay');
 
@@ -13,6 +10,8 @@ let mainContainer = $('#main-container')
 
 //Array containing possible attributes
 let hourIDArray = ["09", "10", "11", "12", "13", "14", "15", "16", "17"]
+
+//Array containing saved events
 
 // Function to display time in the jumbotron
 function displayTime() {
@@ -125,3 +124,27 @@ function updateColorCode() {
 }
 
 updateColorCode();
+
+function test(event) {
+    // console.log("test");
+    event.preventDefault();
+
+    let parentDiv = $(this).parent().parent()
+    let parentDivID = parentDiv.attr('id');
+
+    console.log(parentDivID);
+
+    console.log("Hello")
+    let eventInput = $('input[type=text]');
+    let userInput = eventInput.val();
+
+    eventInput.attr("placeholder", userInput);
+}
+
+//Variable to hold the save button 
+let saveBtn = $('.saveBtn');
+let saveIcon = $(".bi-save");
+
+// Event listener on save button
+saveBtn.on('click', test)
+
