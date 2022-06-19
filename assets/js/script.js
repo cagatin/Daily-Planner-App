@@ -129,16 +129,20 @@ function test(event) {
     // console.log("test");
     event.preventDefault();
 
-    let parentDiv = $(this).parent().parent()
-    let parentDivID = parentDiv.attr('id');
-
+    let parentDiv = $(this).parent().parent()   //select the input's parent
+    let parentDivID = parentDiv.attr('id');     //retrieve the ID
     console.log(parentDivID);
 
-    console.log("Hello")
-    let eventInput = $('input[type=text]');
-    let userInput = eventInput.val();
+    let eventInput = $('input[type=text]');     //store reference to the input element
+    let userInput = eventInput.val();           //get its value
 
-    eventInput.attr("placeholder", userInput);
+
+    let savedEvent = {
+        time: parentDivID,
+        input: userInput
+    }
+
+    eventInput.text(userInput);
 }
 
 //Variable to hold the save button 
