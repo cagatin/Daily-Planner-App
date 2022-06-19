@@ -40,42 +40,49 @@ function convertTime(str) {
     }
     return `${str}  ${period}`;
 }
+
+
 // Function that generates time blocks
 function displayTimeBlocks() {
     for (let i = 0; i < hourIDArray.length; i++) {
+        //Create a new Timeblock
         let inputGroupDiv = $('<div>');
         inputGroupDiv.addClass('input-group');
         inputGroupDiv.attr('id', hourIDArray[i]);
 
         //creating the hour span
-        let prependDiv = $('<div>');
+        let prependDiv = $('<div>');                        //container div for hours
         prependDiv.addClass('input-group-prepend');
-        let hourSpan = $('<span>');
+        let hourSpan = $('<span>');                         //span which displays hour
         hourSpan.addClass('input-group-text hour');
-        hourSpan.text(convertTime(hourIDArray[i]));
+        hourSpan.text(convertTime(hourIDArray[i]));         //populate the text of span w/ correct hour
 
-        $(prependDiv).append(hourSpan);
-        $(inputGroupDiv.append(prependDiv));
+        $(prependDiv).append(hourSpan);                     //append the hourSpan to the prepend Div
+        $(inputGroupDiv.append(prependDiv));                //add the prepend div to the  timeblock div
 
         //creating the input field
-        let input = $('<input>');
+        let input = $('<input>');                           //create an input
         input.attr("type", "text");
         input.addClass("form-control row")
         input.attr("aria-label", "small");
 
-        $(inputGroupDiv).append(input);
+        $(inputGroupDiv).append(input);                     //Add input to timeblock div
 
         //creating the save button
-        let appendDiv = $('<div>');
+        let appendDiv = $('<div>');                         //create the contianer div for the button
         appendDiv.addClass("input-group-append");
-        let saveBtn = $('<button>');
+        let saveBtn = $('<button>');                        //create the button
         saveBtn.addClass('btn btn-primary saveBtn');
-        saveBtn.text("Save");
-        appendDiv.append(saveBtn);
+        let iconSpan = $('<i>');
+        iconSpan.addClass("bi-save");
+        saveBtn.append(iconSpan);
 
-        inputGroupDiv.append(appendDiv);
 
-        mainContainer.append(inputGroupDiv);
+        appendDiv.append(saveBtn);                          //add button to button-container div
+
+        inputGroupDiv.append(appendDiv);                    //add button-container div to timeblock div
+
+        mainContainer.append(inputGroupDiv);                //add the timeblock div to the main container
     }
 }
 
@@ -92,11 +99,10 @@ function updateColorCode() {
     for (let i = 0; i < inputGroupDivs.length; i++) {
         //retrieve their id attribute
         let divID = $(inputGroupDivs[i]).attr('id');
-        console.log(divID);
 
         //From the array of children, select the input div
         let inputElement = $(inputGroupDivs[i]).children().eq(1);
-        console.log(inputElement);
+
         //If the current hour is less than the ID... Its in the past!
         if (currHour > divID) {
             if ($(inputElement).hasClass('present')) {
