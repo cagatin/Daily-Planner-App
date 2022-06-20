@@ -154,13 +154,14 @@ function save(event) {
     localStorage.setItem('dailyPlanner', JSON.stringify(savedEvents));
 }
 
-//Variable to hold the save button 
+// Variable to hold the save button 
 let saveBtn = $('.saveBtn');
 let saveIcon = $(".bi-save");
 
 // Event listener on save button
 saveBtn.on('click', save)
 
+// Function which displays the saved events onto the page;
 function initEvents() {
     let storedEvents = JSON.parse(localStorage.getItem('dailyPlanner'));
 
@@ -178,4 +179,21 @@ function initEvents() {
     }
 }
 
+//Function which automatically clears the schedule when the time hits 12am.
+function newDayClear() {
+    let currHour = moment(dateObj).format("HH");
+
+    if (currHour == 0) {
+        localStorage.removeItem('dailyPlanner');
+        for (let i = 0; i < savedEvents.length; i++) {
+            let eventID = savedEvents[i].time;
+            let timeBlock = $(`#${eventID}`);
+            let inputEl = timeBlock.children().eq(1);
+            inputEl.val("");
+        }
+        savedEvents = [];
+    }
+}
+
 initEvents();
+newDayClear();
