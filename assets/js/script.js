@@ -6,10 +6,10 @@ let date;
 let currDayPara = $('#currentDay');
 
 // main container
-let mainContainer = $('#main-container')
+let mainContainer = $('#main-container');
 
 //Array containing possible attributes
-let hourIDArray = ["09", "10", "11", "12", "13", "14", "15", "16", "17"]
+let hourIDArray = ["09", "10", "11", "12", "13", "14", "15", "16", "17"];
 
 //Array containing saved events
 let savedEvents = [];
@@ -156,7 +156,6 @@ function save(event) {
 
 // Variable to hold the save button 
 let saveBtn = $('.saveBtn');
-let saveIcon = $(".bi-save");
 
 // Event listener on save button
 saveBtn.on('click', save)
@@ -165,9 +164,13 @@ saveBtn.on('click', save)
 function initEvents() {
     let storedEvents = JSON.parse(localStorage.getItem('dailyPlanner'));
 
+    if (!storedEvents) {
+        return;
+    }
+
     savedEvents = storedEvents;
 
-    if (savedEvents.length !== 0) {
+    if (savedEvents != null) {
         for (let i = 0; i < savedEvents.length; i++) {
             let eventID = storedEvents[i].time;
             let eventText = storedEvents[i].input;
