@@ -12,6 +12,7 @@ let mainContainer = $('#main-container')
 let hourIDArray = ["09", "10", "11", "12", "13", "14", "15", "16", "17"]
 
 //Array containing saved events
+let savedEvents = [];
 
 // Function to display time in the jumbotron
 function displayTime() {
@@ -125,7 +126,7 @@ function updateColorCode() {
 
 updateColorCode();
 
-function test(event) {
+function save(event) {
     // console.log("test");
     event.preventDefault();
 
@@ -133,16 +134,24 @@ function test(event) {
     let parentDivID = parentDiv.attr('id');     //retrieve the ID
     console.log(parentDivID);
 
-    let eventInput = $('input[type=text]');     //store reference to the input element
-    let userInput = eventInput.val();           //get its value
+    let eventInput = parentDiv.children().eq(1);     //store reference to the input element
+    let userInput = eventInput.val();               //get its value
 
 
     let savedEvent = {
-        time: parentDivID,
-        input: userInput
+        time: parentDivID,      //reference to the id of the input group time block
+        input: userInput        //contains the input of the user
     }
 
+    console.log(savedEvent);
+
+    //Add the event to the savedEvents array
+    savedEvents.push(savedEvent);
+
     eventInput.text(userInput);
+
+    //Save the savedEvents array in the local storage
+    localStorage.setItem('dailyPlanner', JSON.stringify(savedEvents));
 }
 
 //Variable to hold the save button 
@@ -150,5 +159,23 @@ let saveBtn = $('.saveBtn');
 let saveIcon = $(".bi-save");
 
 // Event listener on save button
-saveBtn.on('click', test)
+saveBtn.on('click', save)
 
+function initEvents() {
+    let storedEvents = JSON.parse(localStorage.getItem('dailyPlanner'));
+
+    savedEvents = storedEvents;
+
+    if (savedEvents.length !== 0) {
+        for (let i = 0; i < savedEvents.length; i++) {
+            let eventID = storedEvents[i].time;
+            let eventText = storedEvents[i].input;
+
+            let timeBlock = $(`#${eventID}`);
+            let inputEl = timeBlock.children().eq(1);
+            inputEl.val(`${eventText}`);
+        }
+    }
+}
+
+initEvents();
