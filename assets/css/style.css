@@ -2,6 +2,7 @@ body {
   font-family: 'Open Sans', sans-serif;
   font-size: 16px;
   line-height: 1;
+  background-color: #feeafa;
 }
 
 textarea {
@@ -13,14 +14,16 @@ textarea {
   padding: 10px;
 }
 
-
+h1 {
+  margin: 2%;
+}
 
 .jumbotron {
   text-align: center;
   background-color: transparent;
   color: black;
   border-radius: 0;
-  border-bottom: 10px solid black;
+  border-bottom: 1px solid black;
 }
 
 .description {
@@ -39,34 +42,41 @@ textarea {
 }
 
 .input-group-text {
+  display: flex;
+  justify-content: center;
   border: none;
-  width: 7rem;
+  width: 5rem;
   padding-left: 1%;
+  font-weight: bold;
+  border-top-left-radius: 15px;
+  border-bottom-left-radius: 15px;
+}
+
+.input-group {
+  margin: 1px 0;
 }
 
 .input-group:last-child {
   margin-bottom: 5%;
 }
 
-
 .hour {
   background-color: #ffffff;
   color: #000000;
-  border-top: 1px dashed #000000;
 }
 
 .past {
-  background-color: #d3d3d3 !important;
+  background-color: #ffdab9 !important;
   color: white;
 }
 
 .present {
-  background-color: #ff6961 !important;
+  background-color: #ffd166 !important;
   color: white;
 }
 
 .future {
-  background-color: #77dd77 !important;
+  background-color: #b8f2e6 !important;
   color: white;
 }
 
@@ -86,6 +96,7 @@ textarea {
 
 #currentDay {
   padding: 2%;
+  font-size: 150%;
 }
 
 .form-control {
