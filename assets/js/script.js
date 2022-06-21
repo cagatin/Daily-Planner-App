@@ -198,5 +198,7 @@ function newDayClear() {
     }
 }
 
+//Check every minute if a new day starts
+setInterval(newDayClear, 60000);
+
 initEvents();
-newDayClear();
