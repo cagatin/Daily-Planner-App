@@ -11,7 +11,7 @@ Events in the <strong>Past</strong> are displayed with a pinkish/orange backgrou
 
 ### How is it used?
 ![](assets/images/usedBlock.PNG) <br/>
-The user can type anywhere within the time block in order to set the event for that specific hour. The user can then click the blue save button on the left hand side to save the event. </br>
+The user can type anywhere within the time block in order to set the event for that specific hour. The user can then click the blue save button on the right hand side to save the event. </br>
 
 Upon reloading the app, the event will still persist until the end of the day. Should the user want to delete an event, the user can simply remove the text from the timeblock area and click the save button.
 
