@@ -16,7 +16,7 @@ Time blocks that have not occured yet will display a light blue background <br /
 ![](assets/images/usedBlock.PNG) <br/>
 The user can type anywhere within the time block in order to set the event for that specific hour. The user can then click the blue save button on the left hand side to save the event. </br>
 
-Upon reloading the app, the even still persists until the next day. Should the user want to delete an event, the user can simply remove the text from the timeblock area and click the save button.
+Upon reloading the app, the event will still persist until the end of the day. Should the user want to delete an event, the user can simply remove the text from the timeblock area and click the save button.
 
 ### Do events carry over on to the next day?
 <strong> No! </strong> The work day will automatically be reset every night once the clock hits 12am. 
