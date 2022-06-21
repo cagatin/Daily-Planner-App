@@ -6,11 +6,8 @@ Welcome to my [Work Day Scheduler App!](https://cagatin.github.io/Daily-Planner-
 This app enables the user to plan their work day on an hour by hour basis. The app dynamically changes the colors of its time blocks, distinguishing between past, present, and future blocks. 
 
 ### Colors of the time blocks
-![](assets/images/present.PNG) <br/>
-A time block displaying the present hour will have a yellow background. <br/>
-
-![](assets/images/future.PNG) <br/>
-Time blocks that have not occured yet will display a light blue background <br />
+![](assets/images/colorCoding.png/) <br/>
+Events in the <strong>Past</strong> are displayed with a pinkish/orange background. Events in the <strong>Present</strong> adopt a yellow background, while events in the <strong>Future</strong> are presented with a light blue background.
 
 ### How is it used?
 ![](assets/images/usedBlock.PNG) <br/>
